@@ -41,4 +41,15 @@ public class BeanFactory {
         return null;
     }
 
+    public static Map<String,Object> getObjectMapByClass(Class clazz) {
+        Map resultBeanMap = new HashMap();
+        for(String beanName : beanMap.keySet()) {
+            Object o = beanMap.get(beanName);
+            if(o.getClass().equals(clazz)) {
+                resultBeanMap.put(beanName, o);
+            }
+        }
+        return resultBeanMap;
+    }
+
 }

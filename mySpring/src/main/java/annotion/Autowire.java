@@ -6,10 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 配置类组件注解
+ * 依赖注入组件注解
  */
-@Target({ElementType.TYPE} )
+@Target({ElementType.FIELD} )
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MyConfig {
-    String scanPath() default "";
+public @interface Autowire {
+    String name() default "";
 }

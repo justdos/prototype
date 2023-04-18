@@ -4,7 +4,7 @@ import annotion.Autowire;
 import annotion.MyBean;
 
 @MyBean
-public class GuestBean {
+public class GiftBean {
     @Autowire
-    OrderBean orderBean;
+    GuestBean guestBean;
 }

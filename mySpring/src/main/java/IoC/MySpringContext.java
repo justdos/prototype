@@ -2,6 +2,7 @@ package IoC;
 
 import annotion.MyBean;
 import annotion.MyConfig;
+import aop.AopRegister;
 import com.sun.xml.internal.ws.util.StringUtils;
 
 import java.io.File;
@@ -25,7 +26,7 @@ public class MySpringContext {
 
     }
 
-    private void doScan(Class clazz, String path) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    private void doScan(Class clazz, String path) throws Exception {
         Collection<String> classPaths = getClassPath(clazz, path);
 
         String classPath = getPathByClass(clazz);
@@ -68,7 +69,8 @@ public class MySpringContext {
                 }
             }
         }
-
+        DIExecute.doDI();
+        AopRegister.doRegist();
     }
 
     private Collection<String> getClassPath(Class clazz, String path) {
